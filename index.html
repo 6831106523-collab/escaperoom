@@ -194,7 +194,7 @@ function show(id){closeMenu();document.querySelectorAll('.screen').forEach(s=>s.
 function toggleMenu(e){e.stopPropagation();const m=$('menu');m.hidden=!m.hidden;$('menuBtn').setAttribute('aria-expanded',String(!m.hidden))}
 function closeMenu(){const m=$('menu');if(m){m.hidden=true;$('menuBtn').setAttribute('aria-expanded','false')}}
 addEventListener('click',e=>{if(!e.target.closest('#menu'))closeMenu()});
-function norm(s){return s.toLowerCase().replace(/[\s.]+/g,'')}
+function norm(s){return s.toLowerCase().replace(/[\s.'"‘’“”]+/g,'')}
 function stampHTML(){return done.map(d=>'<div class="stamp'+(d?' got':'')+'">'+(d?'🍃':'')+'</div>').join('')}
 function drawMap(){
   const box=$('mapbox'),pos=innerWidth<600?POS_NARROW:POS_WIDE;box.innerHTML='';
